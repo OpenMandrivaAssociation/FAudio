@@ -1,0 +1,26 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index be3e506..830423c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -44,6 +44,8 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+ 	)
+ endif()
+ 
++include_directories(/usr/include/SDL2)
++
+ # Add our repository's module path to CMake's module path list
+ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules")
+ 
+diff --git a/src/FAudio_internal.h b/src/FAudio_internal.h
+index 8a80195..afeb5c2 100644
+--- a/src/FAudio_internal.h
++++ b/src/FAudio_internal.h
+@@ -111,7 +111,7 @@
+ #define FAudio_floor(x) SDL_floor(x)
+ #define FAudio_abs(x) SDL_abs(x)
+ #define FAudio_ldexp(v, e) SDL_scalbn(v, e)
+-#define FAudio_exp(x) SDL_exp(x)
++#define FAudio_exp(x) exp(x)
+ 
+ #define FAudio_cosf(x) SDL_cosf(x)
+ #define FAudio_sinf(x) SDL_sinf(x)
