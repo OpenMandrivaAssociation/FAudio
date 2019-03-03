@@ -46,6 +46,7 @@ BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(xcb)
 BuildRequires:	pkgconfig(xau)
 BuildRequires:	pkgconfig(xdmcp)
+BuildRequires:	pkgconfig(dbus-1)
 
 #----------------------------------------------------------------------------
 
