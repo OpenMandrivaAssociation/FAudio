@@ -4,7 +4,7 @@
 
 Summary:	A free reimplementation of the DirectX XAudio APIs
 Name:		FAudio
-Version:	19.03
+Version:	19.06.07
 Release:	1
 License:	MIT
 Group:		System/Libraries
