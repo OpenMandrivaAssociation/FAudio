@@ -4,7 +4,7 @@
 
 Summary:	A free reimplementation of the DirectX XAudio APIs
 Name:		FAudio
-Version:	20.03
+Version:	20.04
 Release:	1
 License:	MIT
 Group:		System/Libraries
