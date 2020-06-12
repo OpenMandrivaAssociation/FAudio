@@ -26,6 +26,7 @@ BuildRequires:  pkgconfig(sdl2)
 BuildRequires:	devel(libavcodec)
 BuildRequires:	devel(libdbus-1)
 BuildRequires:	devel(libSDL2-2.0)
+BuildRequires:	devel(libunwind)
 %endif
 
 #----------------------------------------------------------------------------
