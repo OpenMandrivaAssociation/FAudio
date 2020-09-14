@@ -11,7 +11,7 @@
 
 Summary:	A free reimplementation of the DirectX XAudio APIs
 Name:		FAudio
-Version:	20.07
+Version:	20.09
 Release:	1
 License:	MIT
 Group:		System/Libraries
@@ -22,6 +22,7 @@ BuildRequires:	cmake ninja
 BuildRequires:	pkgconfig(libavcodec)
 BuildRequires:	pkgconfig(dbus-1)
 BuildRequires:  pkgconfig(sdl2)
+BuildRequires:  pkgconfig(libunwind-llvm)
 %if %{with compat32}
 BuildRequires:	devel(libavcodec)
 BuildRequires:	devel(libdbus-1)
