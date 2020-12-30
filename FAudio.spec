@@ -11,7 +11,7 @@
 
 Summary:	A free reimplementation of the DirectX XAudio APIs
 Name:		FAudio
-Version:	20.11
+Version:	20.12
 Release:	1
 License:	MIT
 Group:		System/Libraries
@@ -72,6 +72,7 @@ XAudio2, X3DAudio, XAPO, and XACT3.
 %{_includedir}/*
 %{_libdir}/libFAudio.so
 %{_libdir}/cmake/FAudio
+%{_libdir}/pkgconfig/*.pc
 
 #----------------------------------------------------------------------------
 %if %{with compat32}
@@ -109,6 +110,7 @@ XAudio2, X3DAudio, XAPO, and XACT3.
 %files -n %{dev32name}
 %{_prefix}/lib/libFAudio.so
 %{_prefix}/lib/cmake/FAudio
+%{_prefix}/lib/pkgconfig/*.pc
 %endif
 
 %prep
