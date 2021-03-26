@@ -16,7 +16,7 @@ Release:	1
 License:	MIT
 Group:		System/Libraries
 Url:		http://fna-xna.github.io/
-Source0:	https://github.com/FNA-XNA/FAudio/archive/%{version}.tar.gz
+Source0:	https://github.com/FNA-XNA/FAudio/archive/%{version}/%{name}-%{version}.tar.gz
 Patch0:		faudio-19.03-compile.patch
 BuildRequires:	cmake ninja
 BuildRequires:	pkgconfig(libavcodec)
