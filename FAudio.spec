@@ -115,6 +115,11 @@ XAudio2, X3DAudio, XAPO, and XACT3.
 
 %prep
 %autosetup -p1
+# Fix build -- lists a few file that have been deleted
+sed -i \
+	-e '/glfuncs.h/d' \
+	-e '/glmacros.h/d' \
+	CMakeLists.txt
 
 %if %{with compat32}
 %cmake32 \
