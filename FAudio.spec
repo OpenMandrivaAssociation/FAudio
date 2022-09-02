@@ -11,7 +11,7 @@
 
 Summary:	A free reimplementation of the DirectX XAudio APIs
 Name:		FAudio
-Version:	22.07
+Version:	22.09.01
 Release:	1
 License:	MIT
 Group:		System/Libraries
@@ -132,7 +132,7 @@ cd ..
 %endif
 
 %cmake \
-	-DBUILD_TESTS:BOOL=ON \
+	-DBUILD_TESTS:BOOL=OFF \
 	-DBUILD_UTILS:BOOL=ON \
 	-DFFMPEG:BOOL=ON \
 	-DXNASONG:BOOL=ON \
