@@ -12,7 +12,7 @@
 Summary:	A free reimplementation of the DirectX XAudio APIs
 Name:		FAudio
 Version:	23.03
-Release:	1
+Release:	2
 License:	MIT
 Group:		System/Libraries
 Url:		http://fna-xna.github.io/
