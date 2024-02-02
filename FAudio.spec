@@ -11,11 +11,11 @@
 
 Summary:	A free reimplementation of the DirectX XAudio APIs
 Name:		FAudio
-Version:	24.01
+Version:	24.02
 Release:	1
 License:	MIT
 Group:		System/Libraries
-Url:		http://fna-xna.github.io/
+Url:		https://fna-xna.github.io/
 Source0:	https://github.com/FNA-XNA/FAudio/archive/%{version}/%{name}-%{version}.tar.gz
 Patch0:		faudio-19.03-compile.patch
 BuildRequires:	cmake ninja
