@@ -21,12 +21,12 @@ Patch0:		faudio-19.03-compile.patch
 BuildRequires:	cmake ninja
 BuildRequires:	pkgconfig(libavcodec)
 BuildRequires:	pkgconfig(dbus-1)
-BuildRequires:  pkgconfig(sdl2)
+BuildRequires:  pkgconfig(sdl3)
 BuildRequires:  pkgconfig(libunwind-llvm)
 %if %{with compat32}
 BuildRequires:	devel(libavcodec)
 BuildRequires:	devel(libdbus-1)
-BuildRequires:	devel(libSDL2-2.0)
+BuildRequires:	devel(libSDL3)
 BuildRequires:	devel(libunwind)
 %endif
 
