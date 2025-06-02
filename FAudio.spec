@@ -11,7 +11,7 @@
 
 Summary:	A free reimplementation of the DirectX XAudio APIs
 Name:		FAudio
-Version:	25.05
+Version:	25.06
 Release:	1
 License:	MIT
 Group:		System/Libraries
