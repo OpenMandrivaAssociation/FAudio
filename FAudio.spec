@@ -3,26 +3,27 @@
 %bcond_without compat32
 %endif
 
-%define major 0
-%define libname %mklibname %{name} %{major}
-%define devname %mklibname %{name} -d
-%define lib32name %mklib32name %{name} %{major}
-%define dev32name %mklib32name %{name} -d
+%define	major 0
+%define	libname %mklibname %{name} %{major}
+%define	devname %mklibname %{name} -d
+%define	lib32name %mklib32name %{name} %{major}
+%define	dev32name %mklib32name %{name} -d
 
 Summary:	A free reimplementation of the DirectX XAudio APIs
-Name:		FAudio
-Version:	25.08
+Name:	FAudio
+Version:	25.09
 Release:	1
 License:	MIT
-Group:		System/Libraries
+Group:	Sound
 Url:		https://fna-xna.github.io/
 Source0:	https://github.com/FNA-XNA/FAudio/archive/%{version}/%{name}-%{version}.tar.gz
 Patch0:		faudio-19.03-compile.patch
-BuildRequires:	cmake ninja
-BuildRequires:	pkgconfig(libavcodec)
+BuildRequires:	cmake
+BuildRequires:ninja
 BuildRequires:	pkgconfig(dbus-1)
-BuildRequires:  pkgconfig(sdl3)
-BuildRequires:  pkgconfig(libunwind-llvm)
+BuildRequires:	pkgconfig(libavcodec)
+BuildRequires:	pkgconfig(libunwind-llvm)
+BuildRequires:	pkgconfig(sdl3)
 %if %{with compat32}
 BuildRequires:	devel(libavcodec)
 BuildRequires:	devel(libdbus-1)
@@ -63,7 +64,6 @@ Provides:	%{name}-devel = %{version}-%{release}
 %description -n	%{devname}
 This package contains the headers that programmers will need to develop
 applications which will use %{name}.
-
 FAudio is an XAudio reimplementation that focuses solely on developing
 fully accurate DirectX Audio runtime libraries for the FNA project, including
 XAudio2, X3DAudio, XAPO, and XACT3.
@@ -83,7 +83,6 @@ Group:		System/Libraries
 %description -n	%{lib32name}
 This package contains the library needed to run programs dynamically
 linked with %{name}.
-
 FAudio is an XAudio reimplementation that focuses solely on developing
 fully accurate DirectX Audio runtime libraries for the FNA project, including
 XAudio2, X3DAudio, XAPO, and XACT3.
@@ -102,7 +101,6 @@ Requires:	%{lib32name} = %{version}-%{release}
 %description -n	%{dev32name}
 This package contains the headers that programmers will need to develop
 applications which will use %{name}.
-
 FAudio is an XAudio reimplementation that focuses solely on developing
 fully accurate DirectX Audio runtime libraries for the FNA project, including
 XAudio2, X3DAudio, XAPO, and XACT3.
@@ -112,6 +110,8 @@ XAudio2, X3DAudio, XAPO, and XACT3.
 %{_prefix}/lib/cmake/FAudio
 %{_prefix}/lib/pkgconfig/*.pc
 %endif
+
+#----------------------------------------------------------------------------
 
 %prep
 %autosetup -p1
@@ -138,11 +138,13 @@ cd ..
 	-DXNASONG:BOOL=ON \
 	-G Ninja
 
+
 %build
 %if %{with compat32}
 %ninja_build -C build32
 %endif
 %ninja_build -C build
+
 
 %install
 %if %{with compat32}
