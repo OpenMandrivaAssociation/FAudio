@@ -11,13 +11,14 @@
 
 Summary:	A free reimplementation of the DirectX XAudio APIs
 Name:	FAudio
-Version:	26.01
+Version:	26.03
 Release:	1
 License:	MIT
 Group:	Sound
 Url:		https://fna-xna.github.io/
 Source0:	https://github.com/FNA-XNA/FAudio/archive/%{version}/%{name}-%{version}.tar.gz
-Patch0:		faudio-19.03-compile.patch
+# Faudio now uses SDL3 in place of SDL2
+#Patch0:		faudio-19.03-compile.patch
 BuildRequires:	cmake
 BuildRequires:ninja
 BuildRequires:	pkgconfig(dbus-1)
@@ -45,7 +46,6 @@ Group:		System/Libraries
 %description -n	%{libname}
 This package contains the library needed to run programs dynamically
 linked with %{name}.
-
 FAudio is an XAudio reimplementation that focuses solely on developing
 fully accurate DirectX Audio runtime libraries for the FNA project, including
 XAudio2, X3DAudio, XAPO, and XACT3.
@@ -71,8 +71,8 @@ XAudio2, X3DAudio, XAPO, and XACT3.
 %files -n %{devname}
 %{_includedir}/*
 %{_libdir}/libFAudio.so
-%{_libdir}/cmake/FAudio
-%{_libdir}/pkgconfig/*.pc
+%{_libdir}/cmake/%{name}
+%{_libdir}/pkgconfig/%{name}.pc
 
 #----------------------------------------------------------------------------
 %if %{with compat32}
@@ -107,25 +107,19 @@ XAudio2, X3DAudio, XAPO, and XACT3.
 
 %files -n %{dev32name}
 %{_prefix}/lib/libFAudio.so
-%{_prefix}/lib/cmake/FAudio
-%{_prefix}/lib/pkgconfig/*.pc
+%{_prefix}/lib/cmake/%{name}
+%{_prefix}/lib/pkgconfig/%{name}.pc
 %endif
 
 #----------------------------------------------------------------------------
 
 %prep
 %autosetup -p1
-# Fix build -- lists a few file that have been deleted
-sed -i \
-	-e '/glfuncs.h/d' \
-	-e '/glmacros.h/d' \
-	CMakeLists.txt
 
 %if %{with compat32}
 %cmake32 \
 	-DBUILD_TESTS:BOOL=ON \
 	-DBUILD_UTILS:BOOL=ON \
-	-DFFMPEG:BOOL=ON \
 	-DXNASONG:BOOL=ON \
 	-G Ninja
 cd ..
@@ -134,7 +128,6 @@ cd ..
 %cmake \
 	-DBUILD_TESTS:BOOL=OFF \
 	-DBUILD_UTILS:BOOL=ON \
-	-DFFMPEG:BOOL=ON \
 	-DXNASONG:BOOL=ON \
 	-G Ninja
 
