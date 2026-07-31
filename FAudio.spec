@@ -11,7 +11,7 @@
 
 Summary:	A free reimplementation of the DirectX XAudio APIs
 Name:	FAudio
-Version:	26.06
+Version:	26.7
 Release:	1
 License:	MIT
 Group:	Sound
@@ -114,7 +114,7 @@ XAudio2, X3DAudio, XAPO, and XACT3.
 #----------------------------------------------------------------------------
 
 %prep
-%autosetup -p1
+%autosetup -p1 -n FAudio-26.07
 
 %if %{with compat32}
 %cmake32 \
